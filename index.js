@@ -12,12 +12,10 @@ connect.then(() => { // connect returns a promise so we can chain that shit
 
     console.log('Connected correctly to server');
 
-    const newCampsite = new Campsite({
+    Campsite.create({
         name: 'React Lake Campground',
         description: 'test'
-    });
-
-    newCampsite.save() // saves document to the database and returns a promise telling us if the save operation failed or succeeded
+    })
     .then(campsite => {
         console.log(campsite);
         return Campsite.find();
