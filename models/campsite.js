@@ -13,7 +13,7 @@ const campsiteSchema = new Schema({ // first argument is required
         required: true
     }
 }, {
-    timestamps: true // automatically adds createdat and updatedat
+    timestamps: true // automatically adds createdAt and updatedAt
 }); // instantiates a new object named campsiteSchema
 
 // now let's make a model!
