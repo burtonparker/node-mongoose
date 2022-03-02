@@ -2,6 +2,25 @@ const mongoose = require('mongoose');
 // this is how we create a schema
 const Schema = mongoose.Schema; // doing this so we can just refer to Schema
 
+const commentSchema = new Schema({
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5,
+        required: true
+    },
+    text: {
+        type: String,
+        required: true
+    },
+    author: {
+        type: String,
+        required: true       
+    }
+}, {
+    timestamps: true
+});
+
 const campsiteSchema = new Schema({ // first argument is required
     name: {
         type: String,
@@ -11,7 +30,8 @@ const campsiteSchema = new Schema({ // first argument is required
     description: {
         type: String, 
         required: true
-    }
+    },
+    comments: [commentSchema]
 }, {
     timestamps: true // automatically adds createdAt and updatedAt
 }); // instantiates a new object named campsiteSchema
